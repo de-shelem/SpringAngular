@@ -30,6 +30,7 @@ public class BookDepositoryRestController {
     }
     @PostMapping("/books")
     void addUser(@RequestBody BookDto bookDto) {
+        System.out.println(bookDto);
         bookDepository.addBook(bookDto);
     }
 

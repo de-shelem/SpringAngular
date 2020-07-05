@@ -11,7 +11,16 @@ public class BookDto {
     private String id;
     private String name;
     private String genre;
+
     private String author;
+
+
+    public BookDto() {
+        id ="";
+        name= "";
+        genre="";
+        author="";
+    }
 
     public String getName() {
         return name;
@@ -24,6 +33,7 @@ public class BookDto {
     public String getAuthor() {
         return author;
     }
+
 
 
 
