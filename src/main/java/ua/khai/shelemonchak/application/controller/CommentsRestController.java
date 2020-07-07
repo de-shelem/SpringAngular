@@ -31,13 +31,13 @@ public class CommentsRestController {
 
     @PostMapping("/comments/{id}")
     void addComment(@PathVariable(value = "id") String id, @RequestBody CommentsDto commentsDto) {
-        System.out.println("\n\n\n"+commentsDto.toString()+"\n\n\n");
+
         bookDepository.addCommentByBookId(Integer.parseInt(id), commentsDto);
     }
 
     @DeleteMapping("/comments/{id}")
     void deleteComment(@PathVariable(value = "id") String id) {
-        System.out.println("\n\n\n"+id+"\n\n\n");
+
         bookDepository.deleteCommentsById(Integer.parseInt(id));
     }
 
