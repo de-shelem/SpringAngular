@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { BookService } from '../service/book.service';
-import { Book } from '../model/book';
+import {Component} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {BookService} from '../service/book.service';
+import {Book} from '../model/book';
 
 @Component({
   selector: 'app-book-form',
@@ -16,7 +16,7 @@ export class BookFormComponent {
     this.book = new Book();
   }
 
-  onSubmit(){
+  onSubmit() {
     this.bookService.save(this.book).subscribe(result => this.gotoBookList());
   }
 

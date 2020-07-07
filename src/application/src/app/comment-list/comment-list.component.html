@@ -1,0 +1,28 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+
+        <th scope="col">Name</th>
+        <th scope="col">Username</th>
+        <th scope="col">Date</th>
+        <th scope="col">Delete</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let comment of comments">
+        <td>{{ comment.text }}</td>
+        <td>{{ comment.username }}</td>
+        <td>{{ comment.date }}</td>
+        <td>
+          <button (click)="deleteComment(comment.id)" class="btn btn-danger btn-delete">Delete</button>
+        </td>
+
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

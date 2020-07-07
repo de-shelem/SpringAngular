@@ -21,5 +21,6 @@ public class Application {
     public void init() {
         bookDepository.addBook("11/22/63", "fantastic", "St.king");
         bookDepository.addCommentByBookId(1, "comment number 1", "username");
+        bookDepository.deleteCommentsById(2);
     }
 }

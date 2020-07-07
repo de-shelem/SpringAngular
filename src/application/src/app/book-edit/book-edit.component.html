@@ -1,0 +1,15 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #bookForm="ngForm">
+
+      <div class="form-group">
+        <label for="newName">New name</label>
+        <input type="text" [(ngModel)]="book.name" class="form-control" id="newName" name="newName"
+               placeholder="Enter new name of book"
+               required #name="ngModel">
+      </div>
+
+      <button type="submit" [disabled]="!bookForm.form.valid" class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>

@@ -19,7 +19,7 @@ public class BookDepositoryRestController {
     private BookDepository bookDepository;
 
 
-    @GetMapping ("/books")
+    @GetMapping("/books")
     public List<BookDto> getBooks() {
         List<Book> books = bookDepository.getAllBooks();
         List<BookDto> bookDtos = books
@@ -28,11 +28,21 @@ public class BookDepositoryRestController {
                 .collect(Collectors.toList());
         return bookDtos;
     }
+
     @PostMapping("/books")
-    void addUser(@RequestBody BookDto bookDto) {
-        System.out.println(bookDto);
+    void addBook(@RequestBody BookDto bookDto) {
         bookDepository.addBook(bookDto);
     }
 
+    @PutMapping("/books/{id}")
+    void editBook(@PathVariable(value = "id") String id, @RequestBody BookDto bookDto) {
+        System.out.println("\n\n\n" + id + "\n\n\n");
+        bookDepository.updateBookNameById(Integer.parseInt(id), bookDto.getName());
+    }
+
+    @DeleteMapping("/books/{id}")
+    void deleteBook(@PathVariable(value = "id") String id) {
+        bookDepository.deleteBookById(Integer.parseInt(id));
+    }
 
 }

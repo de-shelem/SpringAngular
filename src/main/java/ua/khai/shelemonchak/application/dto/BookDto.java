@@ -6,7 +6,7 @@ import ua.khai.shelemonchak.application.entity.Book;
 
 import java.util.Iterator;
 
-@Data
+
 public class BookDto {
     private String id;
     private String name;
@@ -16,10 +16,14 @@ public class BookDto {
 
 
     public BookDto() {
-        id ="";
-        name= "";
-        genre="";
-        author="";
+        id = "";
+        name = "";
+        genre = "";
+        author = "";
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getName() {
@@ -33,8 +37,6 @@ public class BookDto {
     public String getAuthor() {
         return author;
     }
-
-
 
 
     public BookDto(Book book) {

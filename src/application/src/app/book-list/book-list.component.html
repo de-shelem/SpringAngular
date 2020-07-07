@@ -2,22 +2,36 @@
   <div class="card-body">
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
-        <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Name</th>
-          <th scope="col">Author</th>
-          <th scope="col">Genre</th>
-
-        </tr>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Author</th>
+        <th scope="col">Genre</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Add comment</th>
+        <th scope="col">Show comments</th>
+      </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of books">
-          <td>{{ user.id }}</td>
-          <td>{{ user.name }}</td>
-          <td>{{ user.author }}</td>
-          <td>{{ user.genre }}</td>
-
-        </tr>
+      <tr *ngFor="let book of books">
+        <td>{{ book.id }}</td>
+        <td>{{ book.name }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.genre }}</td>
+        <td>
+          <button (click)="deleteBook(book.id)" class="btn btn-danger btn-delete">Delete</button>
+        </td>
+        <td>
+          <button routerLink="/editBookName/{{book.id}}" class="btn btn-primary">Edit</button>
+        </td>
+        <td>
+          <button routerLink="/addComment/{{book.id}}" class="btn btn-primary">Add comment</button>
+        </td>
+        <td>
+          <button routerLink="/showComments/{{book.id}}" class="btn btn-primary">Comments</button>
+        </td>
+      </tr>
       </tbody>
     </table>
   </div>

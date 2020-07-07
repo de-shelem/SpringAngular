@@ -3,6 +3,7 @@ package ua.khai.shelemonchak.application.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.khai.shelemonchak.application.dto.BookDto;
+import ua.khai.shelemonchak.application.dto.CommentsDto;
 import ua.khai.shelemonchak.application.entity.*;
 import ua.khai.shelemonchak.application.repostory.*;
 
@@ -74,14 +75,14 @@ public class BookDepositoryService implements BookDepository {
 
         }
 
-        Book book = new Book(name, genre,authorSet);
+        Book book = new Book(name, genre, authorSet);
         return bookRepository.save(book);
 
     }
 
     @Override
     public Book addBook(BookDto bookDto) {
-        return this.addBook(bookDto.getName(),bookDto.getGenre(),bookDto.getAuthor());
+        return this.addBook(bookDto.getName(), bookDto.getGenre(), bookDto.getAuthor());
     }
 
     public List<Book> getAllBooks() {
@@ -117,6 +118,11 @@ public class BookDepositoryService implements BookDepository {
         }
     }
 
+    @Override
+    public Comments addCommentByBookId(int id, CommentsDto commentsDto) {
+        return addCommentByBookId(id, commentsDto.getText(), commentsDto.getUsername());
+    }
+
     public List<Comments> getAllComments() {
         return commentsRepository.findAll();
     }
@@ -147,7 +153,7 @@ public class BookDepositoryService implements BookDepository {
     @Override
     public void updateBookNameById(int id, String name) {
         Book book = bookRepository.findBookById(id);
-        book.setName (name);
+        book.setName(name);
         bookRepository.save(book);
     }
 
